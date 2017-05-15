@@ -1,0 +1,31 @@
+<h4>Найдено автомобилей: <%= carAmount %>.</h4>
+<div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>Фото</td>
+            <td>Марка</td>
+            <td>Модель</td>
+            <td>Цена</td>
+            <td>Другая информация</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <% cars.forEach(function (car) { %>
+        <tr id="<%= car.id %>" class="carTr">
+            <td><img id="img" height="100px" align="center" src="<%= car.photo %>"></td>
+            <td><%= car.brand %></td>
+            <td><%= car.model %></td>
+            <td><%= car.price %> BYN</td>
+            <td>
+                Пробег: <%= car.mileage %> <br>
+                Топливо: <%= car.gasoline %> <br>
+                КПП: <%= car.transmission %> <br>
+                Объем двигателя: <%= car.capacity %>
+            </td>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+</div>

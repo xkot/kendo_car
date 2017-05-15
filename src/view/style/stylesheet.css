@@ -1,0 +1,106 @@
+#app {
+    position: absolute;
+    width: 100%;
+}
+#BYNPrice {
+    font-size: large;
+    background-color: gold;
+    padding: 10px;
+}
+#carList {
+    padding: 10px;
+    cursor: pointer;
+}
+#carName {
+    font-size: larger;
+    text-align: center;
+    width: 100%;
+}
+#carViewInfo {
+    display: table-column;
+    padding: 20px;
+}
+#listViewImg {
+    text-align: center;
+    height: 110px;
+    width: 160px;
+    margin: auto;
+}
+#manualBtn, #autoBtn {
+    margin: auto;
+    width: 49%;
+}
+#minMileage, #maxMileage, #minPrice, #maxPrice {
+    display: inline;
+    margin: auto;
+    width: 49%;
+}
+#searchBlock {
+    width: 550px;
+    margin: 20px;
+}
+#searchInput {
+    width: 200px;
+    border-radius: 5px;
+    margin-left: 30%;
+}
+#searchInput:focus {
+    border-color: #39e97a;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(94, 233, 120, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(94, 233, 120, 0.6);
+}
+#viewAmount {
+    width: 100%;
+    text-align: right;
+    font-size: smaller;
+    padding: 10px;
+}
+#viewPrice {
+    text-align: center;
+    vertical-align: top;
+    font-size: large;
+}
+.btn-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.carView {
+    margin: 30px;
+}
+.carTd:hover {
+    background-color: whitesmoke;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+.deleteButton, .editButton {
+    width: 80%;
+}
+.filterBlock {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.5);
+}
+.header {
+    background-color: lightgray;
+    padding: 5px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.5);
+}
+.header-main {
+    background-color: gold;
+    padding: 10px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.5);
+}
+button {
+    margin: 5px;
+}
+form {
+    max-width: 550px;
+    margin: auto;
+}
+thead {
+    background-color: whitesmoke;
+}
+h4 {
+    margin-top: 20px;
+}
