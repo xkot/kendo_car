@@ -11,10 +11,16 @@
     <div data-bind="source: cars" data-template="car-template" data-role="listview"></div>
 </div>
 <script id="car-template" type="text/x-kendo-template">
-    <div class="list-div">
+    <div class="list-div" data-bind="click: showCar">
         <label data-bind="text: brand"></label>
         <label data-bind="text: model"></label>
         <p><img width='100%' src='#: photo #'></p>
+        <label data-bind="text: price" data-format="C"></label> <br>
+        <label>
+            #: kendo.toString(get("transmission")+", ") #
+            #: kendo.toString(get("mileage")+" км, ") #
+            #: kendo.toString(get("gasoline")) #
+        </label>
     </div>
 </script>
 <div class="filterBlock col-sm-3"></div>

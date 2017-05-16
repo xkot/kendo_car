@@ -22,9 +22,16 @@ export default function() {
         else {
             carsArray = allCars;
         }
-
+        carsArray.forEach(function (car) {
+           car.price = car.price / 1.8;
+        });
         let viewModel = kendo.observable({
-            cars: carsArray
+            cars: carsArray,
+            showCar: function (e) {
+                let car = e.data;
+                let id = car.get("id");
+                document.location.href = `/car#${id}`;
+            }
         });
         kendo.bind($("#listView"), viewModel);
     }
