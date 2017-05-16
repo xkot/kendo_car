@@ -2,6 +2,7 @@ import $ from 'jquery';
 import template from '../view/templates/admin-main.ejs';
 import {findCars} from '../service/api';
 import {getCars} from '../service/api';
+import {setCars} from '../service/api';
 import {setRandom} from '../service/api';
 import '../../node_modules/@progress/kendo-ui/js/kendo.grid';
 import '../../node_modules/@progress/kendo-ui/js/kendo.all';
@@ -17,7 +18,7 @@ function showList() {
     let carsArray;
     if (findCars()) {
         carsArray = getCars();
-        contentPlace.append(addGrid(carsArray));
+        addGrid(carsArray);
     }
     else {
         contentPlace.html('<h4>База машин отсутствует.</h4>');
@@ -45,6 +46,7 @@ function addGrid(carsArray) {
             transport: {
                 read: function (e) {
                     e.success(carsArray);
+                    console.log (dataSource);
                 },
                 create: function (e) {
                     e.data.carID = carNextID++;
@@ -206,4 +208,5 @@ function addGrid(carsArray) {
             editable: "inline"
         });
     });
+    return carsArray;
 }
