@@ -7,5 +7,14 @@
         <a href="/admin" class="btn btn-success">Панель администрирования</a>
     </span>
 </h2>
-<div id="listView" class="col-sm-9"></div>
+<div id="listView" class="col-sm-9">
+    <div data-bind="source: cars" data-template="car-template" data-role="listview"></div>
+</div>
+<script id="car-template" type="text/x-kendo-template">
+    <div class="list-div">
+        <label data-bind="text: brand"></label>
+        <label data-bind="text: model"></label>
+        <p><img width='100%' src='#: photo #'></p>
+    </div>
+</script>
 <div class="filterBlock col-sm-3"></div>

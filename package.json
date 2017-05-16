@@ -9,6 +9,7 @@
     "dev": "npm-run-all --parallel watchify serve"
   },
   "dependencies": {
+    "@progress/kendo-ui": "^2017.2.504",
     "bootstrap": "^3.3.7",
     "elasticlunr": "^0.9.5",
     "jquery": "^2.2.4",
@@ -31,7 +32,15 @@
   "browserify": {
     "transform": [
       "jstify",
-      "babelify"
+      "babelify",
+      "browserify-shim"
     ]
+  },
+  "browserify-shim": {
+    "kendo": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
   }
 }
