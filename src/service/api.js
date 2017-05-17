@@ -21,6 +21,7 @@ function setCars(cars) {
 }
 
 function addCar(car) {
+    debugger;
     const cars = getCars();
     car.id = nextId();
     cars.push(car);
@@ -28,6 +29,7 @@ function addCar(car) {
 }
 
 function removeCar(id) {
+    debugger;
     const cars = getCars();
     const car = cars.find((car) => Number(car.id) === Number(id));
 
@@ -51,6 +53,7 @@ function getCarById(id) {
 }
 
 function editCar(editedCar, id) {
+    debugger;
     const cars = getCars();
     let carIndex = cars.findIndex((car) => Number(car.id) === Number(id));
     editedCar.id = id;
@@ -68,7 +71,7 @@ function incViews(id) {
 
 function setRandom() {
     let cars = [];
-    const brandNames = ["Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", "BMW", "Bugatti", "Buick", "Volkswagen", "Volvo", "Lada", "Geely", "Dacia", "Daewoo", "Daihatsu", "Dodge", "Jeep", "Infiniti", "Isuzu", "IVECO", "Cadillac", "Citroen",  "Kia",  "Lamborghini", "Lancia", "Land Rover", "Lexus", "Lincoln", "Maserati", "Maybach", "McLaren", "Mercedes-Benz", "Mitsubishi", "Nissan", "Opel", "Peugeot", "Porsche", "Renault", "Rolls-Royce", "Rover", "Saab", "SEAT", "Skoda", "Smart", "Subaru", "Suzuki", "Toyota", "Ferrari", "Fiat", "Ford", "Honda", "Hummer", "Hyundai", "Audi", "Audi", "Chevrolet", "Chrysler", "Jaguar", "Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", "BMW", "Bugatti", "Buick", "Volkswagen", "Volvo", "Volvo", "Volvo", "Lada", "Geely", "Dacia", "Daewoo", "Daihatsu", "Dodge", "Jeep", "Infiniti", "Isuzu", "IVECO", "Cadillac", "Citroen",  "Kia",  "Lamborghini", "Lancia", "Land Rover", "BMW", "BMW", "BMW", "Chevrolet", "Chevrolet", "Ford", "Ford", "Ford", "Acura", "Acura", "Peugeot",  "Peugeot",  "Peugeot", "Peugeot"];
+    const brandNames = ["Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", "BMW", "Bugatti", "Buick", "Volkswagen", "Volvo", "Lada", "Geely", "Dacia", "Daewoo", "Daihatsu", "Dodge", "Jeep", "Infiniti", "Isuzu", "IVECO", "Cadillac", "Citroen",  "Kia",  "Lamborghini", "Lancia", "Land Rover", "Lexus", "Lincoln", "Maserati", "Maybach", "McLaren", "Mercedes-Benz", "Mitsubishi", "Nissan", "Opel", "Peugeot", "Porsche", "Renault", "Rolls-Royce", "Rover", "Saab", "SEAT"];
     function getRandom(min, max) {
         return Math.floor(Math.random() * (max - min)/100)*100 + min;
     }

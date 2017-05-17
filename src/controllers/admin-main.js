@@ -1,9 +1,11 @@
 import $ from 'jquery';
 import template from '../view/templates/admin-main.ejs';
+import {addCar} from '../service/api';
+import {editCar} from '../service/api';
 import {findCars} from '../service/api';
 import {getCars} from '../service/api';
-import {setCars} from '../service/api';
 import {setRandom} from '../service/api';
+import {removeCar} from '../service/api';
 import '../../node_modules/@progress/kendo-ui/js/kendo.grid';
 import '../../node_modules/@progress/kendo-ui/js/kendo.all';
 
@@ -30,48 +32,33 @@ function showList() {
 }
 
 function addGrid(carsArray) {
-    let carNextID = carsArray.length + 1;
-    function getIndexById(id) {
-        let l = carsArray.length;
-        for (let j=0; j < l; j++) {
-            if (carsArray[j].carID == id) {
-                return j;
-            }
-        }
-        return null;
-    }
 
     $(document).ready(function () {
         let dataSource = new kendo.data.DataSource({
             transport: {
-                read: function (e) {
-                    e.success(carsArray);
-                    console.log (dataSource);
+                create: function(options){
+                    addCar(options);
+                    options.success(options.data);
                 },
-                create: function (e) {
-                    e.data.carID = carNextID++;
-                    dataSource.push(e.data);
-                    e.success(e.data);
+                read: function(options){
+                    options.success(carsArray);
                 },
-                update: function (e) {
-                    carsArray[getIndexById(e.data.carID)] = e.data;
-                    e.success();
+                update: function(options){
+                    editCar(options.data, options.data.id);
+                    options.success(options.data);
                 },
-                destroy: function (e) {
-                    carsArray.splice(getIndexById(e.data.carID), 1);
-                    e.success();
-                }
-            },
-            error: function (e) {
-                alert("Status: " + e.status + "; Error message: " + e.errorThrown);
+                destroy: function(options){
+                    removeCar(options.data.id);
+                    options.success(options.data.id);
+                },
             },
             pageSize: 10,
             batch: false,
             schema: {
                 model: {
-                    id: "carID",
+                    id: "id",
                     fields: {
-                        carID: { editable: false, nullable: true },
+                        id: { editable: false, nullable: true },
                         brand: { validation: { required: true } },
                         model: { validation: { required: true } },
                         mileage: { type: "number"  },
@@ -92,14 +79,13 @@ function addGrid(carsArray) {
             filterable: {
                 mode: "row"
             },
-            pageable: {
-                pageSize: 5
-            },
+            pageable: true,
             resizable: true,
             reorderable: true,
             columnMenu: true,
             toolbar: ["create"],
             columns: [
+                { command: ["edit", "destroy"], title: "&nbsp;", width: "150px" },
                 {
                     field: "brand",
                     title: "Марка",
@@ -202,11 +188,9 @@ function addGrid(carsArray) {
                     sortable: false,
                     filterable: false,
                     template: "<img width='100px' src='#: photo #'>"
-                },
-                { command: ["edit", "destroy"], title: "&nbsp;", width: "150px" }
+                }
             ],
             editable: "inline"
         });
     });
-    return carsArray;
 }
