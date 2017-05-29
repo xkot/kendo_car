@@ -21,7 +21,6 @@ function setCars(cars) {
 }
 
 function addCar(car) {
-    debugger;
     const cars = getCars();
     car.id = nextId();
     cars.push(car);
@@ -29,7 +28,6 @@ function addCar(car) {
 }
 
 function removeCar(id) {
-    debugger;
     const cars = getCars();
     const car = cars.find((car) => Number(car.id) === Number(id));
 
@@ -53,7 +51,6 @@ function getCarById(id) {
 }
 
 function editCar(editedCar, id) {
-    debugger;
     const cars = getCars();
     let carIndex = cars.findIndex((car) => Number(car.id) === Number(id));
     editedCar.id = id;

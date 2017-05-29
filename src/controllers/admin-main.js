@@ -52,7 +52,7 @@ function addGrid(carsArray) {
                     options.success(options.data.id);
                 },
             },
-            pageSize: 10,
+            pageSize: 5,
             batch: false,
             schema: {
                 model: {
@@ -78,6 +78,10 @@ function addGrid(carsArray) {
             dataSource: dataSource,
             filterable: {
                 mode: "row"
+            },
+            sortable: {
+                mode: "multiple",
+                allowUnsort: true
             },
             pageable: true,
             resizable: true,

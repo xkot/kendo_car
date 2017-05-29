@@ -1,25 +1,80 @@
-<form>
-    <div class="form-group">
-        <label for="brand">Марка:</label>
-        <input type="text" class="form-control" id="brand">
-    </div>
-    <div class="form-group">
-        <label for="model">Модель:</label>
-        <input type="text" class="form-control" id="model">
-    </div>
-    <div class="form-group">
-        <label for="minPrice">Стоимость BYN:</label><br>
-        <input type="text" class="form-control" id="minPrice" placeholder="от">
-        <input type="text" class="form-control" id="maxPrice" placeholder="до">
-    </div>
-    <div class="form-group">
-        <label for="minMileage">Пробег:</label><br>
-        <input type="text" class="form-control" id="minMileage" placeholder="от">
-        <input type="text" class="form-control" id="maxMileage" placeholder="до">
-    </div>
-    <div id="transmission" class="btn-group">
-        <button type="button" class="btn btn-default" id="manualBtn">Механика</button>
-        <button type="button" class="btn btn-default" id="autoBtn">Автомат</button>
-    </div>
-    <button type="submit" class="btn btn-success">Искать</button>
-</form>
+<div id="filter-block">
+    <form>
+        <div class="form-group">
+            <label for="brand">Марка:</label>
+            <input type="text" class="form-control"
+                   id="brand"
+                   data-bind="source: cars, value: brandValue"
+                   data-role="dropdownlist"
+                   data-text-field = "brand"
+                   data-value-field = "brand">
+        </div>
+        <div class="form-group">
+            <label for = "model">Модель:</label>
+            <input type = "text" class = "form-control"
+                   id = "model"
+                   data-bind="source: cars, value: modelValue"
+                   data-cascade-from = "brand"
+                   data-role = "dropdownlist"
+                   data-text-field = "model"
+                   data-value-field = "model">
+        </div>
+        <label>Год: </label>
+        <div id="year"
+             data-bind="value: yearValue"
+             data-role = "rangeslider"
+             data-min = "1950"
+             data-max = "2017"
+             data-large-step = "67">
+            <input />
+            <input />
+        </div> <br> <br>
+        <label>Цена: </label>
+        <div id="price"
+             data-role = "rangeslider"
+             data-min = "100"
+             data-max = "100000"
+             data-large-step = "90000"
+             data-bind="value: priceValue">
+            <input/>
+            <input/>
+        </div> <br>
+        <div  class="form-group">
+            <label for="transmission">АКПП:</label>
+            <input type="checkbox" id="transmission"
+                   checked="checked"
+                   data-bind="checked: transmissionValue"
+                   data-role="switch"/>
+        </div>
+        <div class="form-group">
+            <label for="min-mileage">Пробег:</label><br>
+            <input type="text" class="form-control"
+                   id="min-mileage"
+                   placeholder="от"
+                   data-bind="value: mileageValue[0]"
+                   data-role="numerictextbox"
+                   data-min="0"
+                   data-max="100000"
+                   step="100">
+            <br> <br>
+            <input type="text" class="form-control"
+                   id="max-mileage"
+                   placeholder="до"
+                   data-bind="value: mileageValue[1]"
+                   data-role="numerictextbox"
+                   data-min="0"
+                   data-max="1000000"
+                   step="100">
+        </div> <br>
+        <div class="form-group">
+            <label for="capacity">Объем двигателя:</label>
+            <input type="text" class="form-control"
+                   id="capacity"
+                   data-bind="source: cars, value: capacityValue"
+                   data-role = "dropdownlist"
+                   data-text-field = "capacity"
+                   data-value-field = "capacity">
+        </div>
+        <button type="submit" class="btn btn-success" data-bind="click: create">Искать</button>
+    </form>
+</div>
