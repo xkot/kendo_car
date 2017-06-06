@@ -22,7 +22,7 @@ export default function(foundCars) {
             {
                 field: "brand",
                 title: "Марка",
-                width: 200
+                width: 150
             },
             {
                 field: "model",
@@ -32,11 +32,12 @@ export default function(foundCars) {
             {
                 field: "mileage",
                 title: "Пробег",
-                width: 150
+                width: 100
             },
             {
                 field: "year",
-                title: "Год"
+                title: "Год",
+                width: 100
             },
             {
                 field: "price",

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import buildFilter from '../../controllers/filter-block';
 import elasticlunr from 'elasticlunr';
-import searchTemplate from '../../view/templates/search-results.ejs';
+import filterGrid from '../../controllers/main-components/filter-grid';
 import template from '../../view/templates/index.ejs';
 import {getCars} from '../../service/api';
 import {getCarById} from '../../service/api';
@@ -30,11 +30,7 @@ export default function(params) {
         foundCars[i] = getCarById(id);
     });
 
-    const searchList = searchTemplate({
-        cars: foundCars,
-        carAmount: foundCars.length
-    });
-    $('#listView').html(searchList);
+    filterGrid (foundCars);
 
     $('#searchInput').on('change', function () {
         let searchValue = $('#searchInput').val();

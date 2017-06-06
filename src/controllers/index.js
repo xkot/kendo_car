@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import buildFilter from '../controllers/filter-block';
+
 import template from '../view/templates/index.ejs';
 import {getCars} from '../service/api';
 import '../../node_modules/@progress/kendo-ui/js/kendo.all';

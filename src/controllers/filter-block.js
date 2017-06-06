@@ -5,7 +5,6 @@ import {getCars} from '../service/api';
 import filtrate from '../controllers/filtration';
 import filterGrid from '../controllers/main-components/filter-grid';
 import filtertemplate from '../view/templates/filter.ejs';
-import searchTemplate from '../view/templates/search-results.ejs';
 
 export default function() {
     let filterInfo = {};
